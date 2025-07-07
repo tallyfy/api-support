@@ -73,3 +73,10 @@ When reporting API issues, include:
 ## Security
 
 Report security vulnerabilities via SECURITY.md process, not as public issues.
+
+## General Coding Practices
+
+- **Extend existing code first**: Don't create new code or functions unless necessary. Extend or augment existing working code whenever possible.
+- **Use shared libraries**: Consider shared libraries from the outset - use existing ones or create them when needed for code reusability.
+- **Add meaningful comments**: Include comments around functions and code you create to explain why something exists and what it does - not just for yourself but for other developers.
+- **Keep AI rules updated**: Always update CLAUDE.md and all Cursor rules files at ./cursor/rules after changing or adding any code.

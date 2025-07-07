@@ -1,0 +1,53 @@
+# Cursor AI Rules for Tallyfy API Support Repository
+
+## Repository Context
+
+This is a public support repository for the Tallyfy API. Your primary role is to:
+- Help developers troubleshoot API integration issues
+- Improve and maintain utility scripts for API operations
+- Ensure code examples follow best practices
+
+## Key Resources
+
+- API Documentation: https://go.tallyfy.com/api
+- Support Documentation: https://support.tallyfy.com
+- General Information: https://tallyfy.com
+
+## Development Guidelines
+
+### API Integration
+- Always use Bearer token authentication pattern shown in existing scripts
+- Handle pagination properly using `meta.pagination` and `links.next`
+- Include proper error handling for API responses
+- Follow the established request header format with Accept and Authorization
+
+### Code Structure
+- Python scripts should follow the existing pattern in Backup Blueprints directory
+- Keep credentials in separate `credentials.txt` file
+- Use environment variables or config files for sensitive data
+
+### Blueprint Operations
+When working with blueprint import/export:
+- Remove system-generated fields before importing (id, owner_id, created_by, etc.)
+- Maintain the structure shown in existing export/import scripts
+- Handle pagination for large data sets
+
+## General Coding Practices
+
+- **Extend existing code first**: Don't create new code or functions unless necessary. Extend or augment existing working code whenever possible.
+- **Use shared libraries**: Consider shared libraries from the outset - use existing ones or create them when needed for code reusability.
+- **Add meaningful comments**: Include comments around functions and code you create to explain why something exists and what it does - not just for yourself but for other developers.
+- **Keep AI rules updated**: Always update CLAUDE.md and all Cursor rules files at ./cursor/rules after changing or adding any code.
+
+## Security Considerations
+
+- Never commit access tokens or organization IDs to the repository
+- Use placeholder values ({org_id}, {user_id}) in documentation examples
+- Report security issues through SECURITY.md process, not as public issues
+
+## When Helping Developers
+
+- Ask for specific error messages and response codes
+- Request sanitized API calls (with sensitive data replaced)
+- Provide working code examples based on the existing utility scripts
+- Test suggestions against the documented API patterns
