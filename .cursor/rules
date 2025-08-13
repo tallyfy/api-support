@@ -1,0 +1,103 @@
+# API Support Repository - Cursor AI Rules
+
+## Repository Overview
+This is a public support repository for developers using the Tallyfy API, serving as a resource hub for API issues, sample code, utilities, and security reporting.
+
+## Critical Context Loading Requirements
+- ALWAYS read ../CLAUDE.md first (root guidelines)
+- THEN read ./CLAUDE.md for repo-specific rules
+- Use web search proactively for current API documentation and best practices
+
+## Key Resources
+- API Documentation: https://go.tallyfy.com/api
+- Support Documentation: https://support.tallyfy.com
+- General Information: https://tallyfy.com
+
+## API Integration Pattern
+When working with Tallyfy API integrations:
+
+1. **Authentication**: Bearer token authentication stored in credentials.txt
+   - Format: organization_id:{org_id} and access_token:{token}
+   - Always use Bearer token in Authorization header
+
+2. **Core API Endpoint**: https://api.tallyfy.com/organizations/{org_id}/checklists
+   - GET: Retrieve blueprints with pagination support
+   - POST: Create new blueprints
+   - Always handle pagination via meta.pagination and links.next
+
+3. **Request Headers**:
+   ```python
+   headers = {
+       'Accept': 'application/json',
+       'Authorization': 'Bearer {access_token}'
+   }
+   ```
+
+4. **Blueprint Import Rules**:
+   Remove these system-generated fields before importing:
+   - id, owner_id, created_by, alias, steps_count
+   - industry_tags, topic_tags, folder_id
+   - kickoff_title, kickoff_description, started_processes
+   - created_at, last_updated, archived_at
+
+## Issue Reporting Format
+When documenting API issues, include:
+- URL with identifiers replaced ({org_id}, {user_id}, etc.)
+- HTTP Verb (GET, POST, UPDATE, DELETE)
+- Full request payload and headers
+- Complete response and response code
+- Steps to reproduce
+
+## Security Guidelines
+- Report vulnerabilities via SECURITY.md process
+- NEVER post security issues as public GitHub issues
+- Sanitize all sensitive data in code samples
+- Use placeholder tokens in examples
+
+## Development Commands
+```bash
+# Install dependencies
+pip3 install requests
+
+# Run export script
+python3 "Backup Blueprints/export_blueprints.py"
+
+# Run import script  
+python3 "Backup Blueprints/import_blueprints.py"
+```
+
+## Code Quality Standards
+- Extend existing utility scripts rather than creating new ones
+- Include comprehensive error handling for API calls
+- Add retry logic for rate limiting (exponential backoff)
+- Document all API response structures
+- Validate credentials before making API calls
+- Use environment variables for sensitive data in production
+
+## Sample Code Requirements
+- Always provide working examples with error handling
+- Include comments explaining each API interaction
+- Show both successful and error response handling
+- Demonstrate pagination for list endpoints
+- Include rate limit handling patterns
+
+## Testing Guidelines
+- Test with valid and invalid credentials
+- Verify pagination works for large datasets
+- Test error scenarios (404, 401, 429, 500)
+- Validate JSON response parsing
+- Check for memory leaks in long-running scripts
+
+## Documentation Standards
+- Keep README.md updated with latest examples
+- Document all command-line arguments
+- Include troubleshooting section for common issues
+- Provide clear setup instructions
+- Link to official API documentation
+
+## File Organization
+- Keep utility scripts in descriptive folders
+- Use clear, action-based naming (export_blueprints.py)
+- Group related functionality together
+- Separate configuration from code
+- Use .gitignore for credentials and output files
