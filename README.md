@@ -98,6 +98,39 @@ The `Backup Blueprints` folder contains sample Python utilities for backing up a
 - The provided `credentials.txt` contains placeholder values only
 - Use environment variables or secure configuration management for production use
 
+## Bulk Exports
+
+The `Bulk Exports` folder contains scripts for bulk exporting data from Tallyfy:
+
+- **`export_processes_csv.py`**: Export all processes (runs) to CSV format
+- **`credentials.txt.template`**: Template file for API credentials
+- **`exports/`**: Directory where CSV exports are saved
+
+### Quick Start
+
+```bash
+# Setup
+cd "Bulk Exports"
+cp credentials.txt.template credentials.txt
+# Edit credentials.txt with your org_id and access_token
+
+# Export all processes
+python3 export_processes_csv.py
+
+# Export only active processes
+python3 export_processes_csv.py --status active
+
+# Export only completed processes
+python3 export_processes_csv.py --status complete
+
+# Export processes from specific template
+python3 export_processes_csv.py --template YOUR_TEMPLATE_ID
+```
+
+The script produces CSV files with 49 columns matching Tallyfy's native export format - one row per task in each process.
+
+See the [Bulk Exports README](Bulk%20Exports/README.md) for full documentation.
+
 ## Example API Usage
 
 ### Basic Blueprint Retrieval
