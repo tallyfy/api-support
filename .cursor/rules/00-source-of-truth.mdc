@@ -1,0 +1,13 @@
+---
+description: Single source of truth — all rules live in CLAUDE.md; do not duplicate here
+globs:
+alwaysApply: true
+---
+
+# Single source of truth for AI rules
+
+All development and AI-assistant rules for this repository live in **CLAUDE.md** at the repo root.
+Cursor and Claude Code must both read and follow it. Do **not** add or duplicate rules in this file —
+edit CLAUDE.md instead. This stub only points Cursor at the canonical file.
+
+@CLAUDE.md
