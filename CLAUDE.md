@@ -83,3 +83,15 @@ Report security vulnerabilities via SECURITY.md process, not as public issues.
 - **Use shared libraries**: Consider shared libraries from the outset - use existing ones or create them when needed for code reusability.
 - **Add meaningful comments**: Include comments around functions and code you create to explain why something exists and what it does - not just for yourself but for other developers.
 - **Keep AI rules updated**: Always update CLAUDE.md and all Cursor rules files at ./cursor/rules after changing or adding any code.
+## Code Quality & Testing Standards (consolidated from Cursor rules, 2026-06-04)
+- Extend existing utility scripts rather than creating new ones
+- Include comprehensive error handling for API calls
+- Add retry logic for rate limiting (exponential backoff)
+- Document all API response structures
+- Validate credentials before making API calls
+- Use environment variables for sensitive data in production
+- Always provide working examples with error handling; show success AND error responses
+- Demonstrate pagination for list endpoints; include rate-limit handling patterns
+- Test with valid and invalid credentials; test 404/401/429/500 paths
+- Verify pagination for large datasets; validate JSON parsing
+- Use clear, action-based file names (e.g. export_blueprints.py); keep credentials/output in .gitignore
