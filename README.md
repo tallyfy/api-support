@@ -60,6 +60,8 @@ X-Tallyfy-Client: APIClient
 
 ## Backup Blueprints
 
+> **There is now an official CLI.** The first-party [`tallyfy` command-line tool](https://github.com/tallyfy/cli) ships supported `tallyfy blueprint export` and `tallyfy blueprint import` commands that supersede the community Python scripts below. It handles the same system-field stripping, plus pagination, retries, and rate-limit backoff, automatically. Install with `brew install tallyfy/tap/tallyfy` (macOS and Linux) or grab a binary from the [releases page](https://github.com/tallyfy/cli/releases). The scripts in this folder remain as simple, dependency-light examples.
+
 The `Backup Blueprints` folder contains sample Python utilities for backing up and restoring your Tallyfy blueprints:
 
 - **`export_blueprints.py`**: Export all blueprints from your organization to JSON files
@@ -99,6 +101,8 @@ The `Backup Blueprints` folder contains sample Python utilities for backing up a
 - Use environment variables or secure configuration management for production use
 
 ## Bulk Exports
+
+> The official [`tallyfy` CLI](https://github.com/tallyfy/cli) also covers this: `tallyfy process list -o csv` exports processes to CSV, and `tallyfy process launch --from-csv <file>` launches processes in bulk from a CSV (with a `--dry-run` preview and per-row error reporting). The script below stays as a minimal example.
 
 The `Bulk Exports` folder contains scripts for bulk exporting data from Tallyfy:
 
