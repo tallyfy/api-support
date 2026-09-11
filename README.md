@@ -19,6 +19,7 @@ Tallyfy transforms every approval, task, business process, SOP, playbook, form o
 ## API Documentation & Resources
 
 - **API Documentation**: https://go.tallyfy.com/api (requires authentication)
+- **Rich text parameters**: [RICH-TEXT-REFERENCES.md](RICH-TEXT-REFERENCES.md) - what `summary`, `title`, `guidance`, `default_value` and `content` accept, and the exact markup for embedding a form field, snippet, template or mention
 - **Product Information**: https://tallyfy.com/products/
 - **Support Documentation**: https://support.tallyfy.com
 - **General Information**: https://tallyfy.com
@@ -236,6 +237,7 @@ Based on community experience, here are common issues to check:
 3. **Rate Limiting**: Respect the 100 req/min and 1000 req/hour limits
 4. **Pagination**: Always handle paginated responses for list endpoints
 5. **Field Removal**: Remove system-generated fields before importing blueprints
+6. **Form field references in descriptions**: `summary`, `guidance`, `default_value` and `content` accept HTML, and a form field reference inside it needs a wrapping `<span class="insert-variable-tag fr-deletable">`, not just `{{alias}}` on its own. Bare braces render correctly to the person doing the task and show as plain text in the template editor, so nothing tells you it was wrong. A reference pointing at something that no longer exists renders as an empty string, silently. See [RICH-TEXT-REFERENCES.md](RICH-TEXT-REFERENCES.md)
 
 ## Enterprise Features
 

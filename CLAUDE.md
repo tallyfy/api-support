@@ -15,6 +15,7 @@ This is a public support repository for developers using the Tallyfy API. It ser
 ## Key Resources
 
 - **API Documentation**: https://go.tallyfy.com/api
+- **Rich text parameters**: `RICH-TEXT-REFERENCES.md` in this repo. Covers what `summary`, `title`, `guidance`, `default_value` and `content` accept, the markup for each kind of embedded reference, and the failure behaviour. A reference pointing at something that no longer exists renders as an empty string with no error, so never assume a description rendered correctly because the write returned 200.
 - **Support Documentation**: https://support.tallyfy.com
 - **General Information**: https://tallyfy.com
 
