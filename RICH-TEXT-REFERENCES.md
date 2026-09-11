@@ -15,6 +15,7 @@ The product documentation carries the same contract in a friendlier form at
 | `guidance` | HTML, with embedded references | The help text on a form field. |
 | `default_value` | HTML, with embedded references | The pre-filled answer on a `text` or `textarea` form field. |
 | `content` | HTML, with embedded references | The body of a comment. Mentions are written here as plain text. |
+| `kickoff_description` | HTML, with embedded references | The instructions shown above a kick-off form. |
 | `title` | Plain text, with variables only | The name of a step, a task or a process. |
 
 `title` is the one exception. It holds text rather than markup, so use the double curly braces on their own there and leave the `span` out.
