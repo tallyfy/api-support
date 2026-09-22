@@ -136,7 +136,7 @@ Mentioning an address that already belongs to a member of the organization menti
 
 ## What happens when a reference stops resolving
 
-Nothing validates a reference when you send it, and nothing warns anybody later. A reference stops resolving for ordinary reasons: somebody deletes the form field, archives the snippet, or removes the template.
+Nothing validates a reference when you send it, and nothing warns anybody later. A reference stops resolving for ordinary reasons: somebody deletes the form field, deletes the snippet, or removes the template. Snippets have no archive, so a deleted snippet cannot be restored.
 
 | Reference | Behaviour when it no longer resolves |
 |---|---|
